@@ -1,0 +1,31 @@
+//proram to find 3 largest distinct elements
+import java.util.*;
+class Largest3elements
+{
+	static void find3LargestElements(int array[] )
+	{
+		Arrays.sort(array);
+		int n = array.length;
+		int count =1 , check = 0;
+	   for(int i =  1; i <=n ; i++)
+       {
+		 if(count<4)
+		 {
+         if(check!=array[n-i])
+		{
+		   System.out.print(array[n-i]+" ");
+           check =array[n-i];
+           count++;		   
+		 }
+		 }
+         else
+         break;		 
+	    }	  
+	 }
+	public static void main(String args[])
+	{
+		int array[] = { 12, 45, 1, -1, 45, 54, 23, 5, 0, -10};
+		
+		find3LargestElements(array);
+	}
+}
