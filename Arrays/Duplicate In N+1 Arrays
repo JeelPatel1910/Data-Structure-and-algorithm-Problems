@@ -1,0 +1,40 @@
+//find duplicate in an array of N+1 Integers
+import java.util.*;
+class DuplicateInNplus1
+{
+	static void findDuplicate(int array[] , int n)
+	{
+		boolean dup = false;
+	   Map<Integer,Integer> map = new HashMap<>();	
+	   for(Integer in: array)	
+	  {
+		   if(map.containsKey(in))
+		   {
+			   map.put(in ,map.get(in)+1);
+			   dup = true;
+		    }		   
+		   else
+		   {
+			   map.put(in,1 );
+		   }
+	    }
+       if(dup!=true)
+	   {
+		   System.out.println("Duplicate character doesn't exist ");
+	     }
+		Set<Integer> keys = map.keySet();
+		for(Integer count : keys)
+		{
+		if(map.get(count)>1)
+		{
+			System.out.println(count+"repeating"+map.get(count)+"times");
+		}
+		}
+	 }
+   public static void main(String args[])
+   {
+	   int array[] = {12, 11, 40, 12, 5, 6, 5, 12 , 11};
+       int n = array.length;
+       findDuplicate(array ,n);
+   }
+ }
