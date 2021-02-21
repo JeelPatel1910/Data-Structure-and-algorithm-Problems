@@ -1,0 +1,57 @@
+import java.util.*;
+import java.io.*;
+class ListOfList
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		//System.out.println("enter the numbers of rows");
+		int numLines = sc.nextInt();                                          //getting total Lines(rows) from user
+        List<List<Integer>> data = new ArrayList<List<Integer>>(numLines)	;
+	    for(int i =0;i<numLines;i++)
+		{
+			//System.out.println("enter numbers of elements");
+			int numElements = sc.nextInt();                                //getting number of elements (column)to add a rows
+			List<Integer> elements = new ArrayList<Integer>(numElements);
+			for(int j =0 ; j<numElements;j++)
+			{
+				
+				int ele = sc.nextInt();
+				elements.add(Integer.valueOf(ele));
+			}
+			data.add(elements);
+		   // System.out.println("element"+i+": "+elements.toString());
+		}
+		//System.out.println("enter numbers of queries");
+		int queries = sc.nextInt();
+		for(int i =0;i<queries;i++)
+		{
+			//System.out.println("enter row and column");
+			int x = sc.nextInt();
+			int y = sc.nextInt();
+		    
+			if(x<1 || x>numLines)
+			{
+				System.out.println("Error");
+			    continue;
+			 } 
+			
+			try
+			{
+			   List<Integer> elemList = data.get(x-1);
+               if(y<1 || y >elemList.size())
+			   {
+				System.out.println("Error");
+			    continue;
+			   }
+			   Integer values = elemList.get(y-1);
+			   System.out.println(values);
+			}
+		   	
+			catch(Exception e)
+			{
+			   e.printStackTrace();	
+			 }
+		}
+	}
+}
