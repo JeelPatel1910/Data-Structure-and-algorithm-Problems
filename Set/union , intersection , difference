@@ -1,0 +1,29 @@
+import java.util.*;
+class SetDemo
+{
+   public static void main(String args[])
+   {
+	   Integer A[] = {1 , 5 , 4 , 6 , 3 , 2};
+       Integer B[] = {2 ,4 ,8 ,9 ,6}; 	
+       Set<Integer> set1 = new HashSet<Integer>();
+       set1.addAll(Arrays.asList(A));	   
+	   Set<Integer> set2 = new HashSet<Integer>();
+       set2.addAll(Arrays.asList(B));	   
+	  
+	  
+	  Set<Integer> union = new HashSet<Integer>(set1);
+	   union.addAll(set2);
+	   System.out.print("Union of Arrays is :");
+	   System.out.println(union);
+	   
+	   Set<Integer> intersection = new HashSet<Integer>(set1);
+	   intersection.retainAll(set2);
+	   System.out.print("intersection of Arrays is :");
+	   System.out.println(intersection);
+	   
+	   Set<Integer> difference = new HashSet<Integer>(set1);
+	   difference.removeAll(set2);
+	   System.out.print("Difference of Arrays is :");
+	   System.out.println(difference);
+   }
+}
